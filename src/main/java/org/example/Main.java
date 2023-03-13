@@ -16,28 +16,14 @@ public class Main {
         // суммарный вес игрушек
         int totalProbability = 0;
 
-        Toy toy1 = new Toy();
-        toy1.id = 1;
-        toy1.name = "bear";
-        toy1.probability = 20;
-        toy1.quantity = 900;
+        Toy toy1 = new Toy(1,"bear", 20, 54);
         store.add(toy1);
 
-        Toy toy2 = new Toy();
-        toy2.id = 2;
-        toy2.name = "car";
-        toy2.probability = 35;
-        toy2.quantity = 500;
+        Toy toy2 = new Toy(1, "car", 35, 23);
         store.add(toy2);
 
-        Toy toy3 = new Toy();
-        toy3.id = 3;
-        toy3.name = "doll";
-        toy3.probability = 15;
-        toy3.quantity = 200;
+        Toy toy3 = new Toy(1, "doll", 15, 9);
         store.add(toy3);
-
-//      System.out.println(toy1.toString());
 
         System.out.println("Игрушки, участвующие в розыгрыше:");
         for (var item : store) {
@@ -45,7 +31,7 @@ public class Main {
         }
         // Подсчитываем общий вес игрушек (сумму весов)
         for (var item : store) {
-            totalProbability += item.probability;
+            totalProbability += item.getChance();
         }
         System.out.println("Общий вес: " + totalProbability);
 
@@ -61,7 +47,7 @@ public class Main {
             // определяем выигранную игрушку и добавляем в список listPrize
             for (var item : store) {
                 previousCount = count;
-                count += item.probability;
+                count += item.getChance();
                 if (count >= rndNum && rndNum > previousCount) {
                     listPrize.add(item.name);
 //                System.out.println("Выпавшая игрушка: " + item.name);

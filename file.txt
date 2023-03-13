@@ -1,2 +1,10 @@
 car
 doll
+doll
+car
+bear
+doll
+bear
+car
+doll
+bear
