@@ -8,3 +8,11 @@ bear
 car
 doll
 bear
+car
+car
+bear
+doll
+car
+bear
+car
+doll

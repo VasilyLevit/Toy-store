@@ -5,9 +5,9 @@ package org.example;
  */
 public class Toy {
     private int id;
-    String name;
+    private String name;
     private int chance;
-    int quantity;
+    private int quantity;
 
     /**
      *
@@ -26,8 +26,12 @@ public class Toy {
     public int getChance() {
         return chance;
     }
+    public String getName() {
+        return name;
+    }
     @Override
     public String toString() {
-        return String.format("id:%d name:%s chance:%s quantity:%d", id, name, chance, quantity );
+//        return String.format("id:%d name:%s chance:%s quantity:%d", id, name, chance, quantity );
+        return String.format("%s chance:%s quantity:%d", name, chance, quantity );
     }
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -13,23 +14,35 @@ public class Main {
         // коллекция игрушек для розыгрыша
         Set<Toy> store = new HashSet<>();
         List listPrize = new ArrayList();
-        // суммарный вес игрушек
-        int totalProbability = 0;
 
-        Toy toy1 = new Toy(1,"bear", 20, 54);
-        store.add(toy1);
 
-        Toy toy2 = new Toy(1, "car", 35, 23);
-        store.add(toy2);
-
-        Toy toy3 = new Toy(1, "doll", 15, 9);
-        store.add(toy3);
+        store.add(new Toy(1,"bear", 20, 54));
+        store.add(new Toy(2, "car", 35, 23));
+        store.add(new Toy(3, "doll", 15, 9));
 
         System.out.println("Игрушки, участвующие в розыгрыше:");
+
+        // Получение данных от пользователя
+        System.out.println("Введите данные для добавляемой игрушки:");
+        Scanner userData = new Scanner(System.in);
+        System.out.printf("Название: ");
+        String name = userData.nextLine();
+        System.out.printf("id: ");
+        int id = userData.nextInt();
+        System.out.printf("Вес: ");
+        int chance = userData.nextInt();
+        System.out.printf("Количество: ");
+        int quantity = userData.nextInt();
+        userData.close();
+
+        store.add(new Toy(id, name, chance, quantity));
+
         for (var item : store) {
             System.out.println(item);
         }
         // Подсчитываем общий вес игрушек (сумму весов)
+        // суммарный вес игрушек
+        int totalProbability = 0;
         for (var item : store) {
             totalProbability += item.getChance();
         }
@@ -49,7 +62,7 @@ public class Main {
                 previousCount = count;
                 count += item.getChance();
                 if (count >= rndNum && rndNum > previousCount) {
-                    listPrize.add(item.name);
+                    listPrize.add(item.getName());
 //                System.out.println("Выпавшая игрушка: " + item.name);
                 }
             }
