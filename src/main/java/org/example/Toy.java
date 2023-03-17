@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Класс Игрушка
  */
@@ -29,6 +32,7 @@ public class Toy {
     public String getName() {
         return name;
     }
+
     @Override
     public String toString() {
 //        return String.format("id:%d name:%s chance:%s quantity:%d", id, name, chance, quantity );
