@@ -61,9 +61,13 @@ public class Main {
                 Ui.printPrize(Draw.listPrize);
             }
             else if (usrCmd.equals("out")) {
-                saveList();
-                Draw.listPrize.remove(0);
-                Ui.printPrize(Draw.listPrize);
+                if (!Draw.listPrize.isEmpty()) {
+                    System.out.print("Выдача игрушки." + '\n');
+                    saveList();
+                    Draw.listPrize.remove(0);
+                    Ui.printPrize(Draw.listPrize);
+                }
+                else System.out.println("Нет разыгранных игрушек." + '\n');
             }
             else if (usrCmd.equals("ex")) {
                 userCmd.close();

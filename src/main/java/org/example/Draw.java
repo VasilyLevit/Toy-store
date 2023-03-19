@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Draw {
-    public static List<String> listPrize = new ArrayList();
+    public static List listPrize = new ArrayList();
+
     public static void determPrize(Set<Toy> store) {
         // Подсчитываем общий вес игрушек (сумму весов)
         // суммарный вес игрушек
