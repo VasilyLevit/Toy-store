@@ -1,9 +1,10 @@
 package org.example;
-
+import java.util.Scanner;
 import java.util.List;
 import java.util.Set;
 
 public class Ui {
+
     public static void programMenu() {
         System.out.println(
                 "Команды управления: " + "\n"
@@ -26,5 +27,21 @@ public class Ui {
         for (var item : prize) {
             System.out.println(item);
         }
+    }
+    private static boolean inputComplete;
+    static int data;
+    public static int getUserDataInt() {
+        inputComplete = false;
+        while(!inputComplete) {
+            Scanner userData = new Scanner(System.in);
+            System.out.print("Введите целочисленное значение: ");
+            boolean flag = userData.hasNextInt();
+            if (flag) {
+                data = userData.nextInt();
+                inputComplete = true;
+            }
+        }
+//        userData.close();
+        return data;
     }
 }

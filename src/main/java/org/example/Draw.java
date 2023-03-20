@@ -3,8 +3,17 @@ import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * класс Розыгрыш игрушки
+ */
 public class Draw {
+    /**
+     * @param numToys количество разыгрываемых игрушек
+     * @param listPrize коллекция разыгранных игрушек
+     */
     public static List listPrize = new ArrayList();
+
+    private static int numToys = 1;
 
     public static void determPrize(Set<Toy> store) {
         // Подсчитываем общий вес игрушек (сумму весов)
@@ -19,7 +28,7 @@ public class Draw {
         int count;
         int previousCount;
         // цикл нескольких розыгрышей
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < numToys; i++) {
             count = 0;
             // генерируем случайное целые в диапазоне от 1 до значения общего веса
             int rndNum = (int) (Math.random() * totalProbability + 1);
